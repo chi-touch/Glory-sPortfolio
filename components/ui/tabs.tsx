@@ -15,7 +15,7 @@ function Tabs({
       data-slot="tabs"
       data-orientation={orientation}
       className={cn(
-        "group/tabs flex gap-2 data-horizontal:flex-col",
+        "group/tabs flex flex-col xl:flex-row gap-2 ",
         className
       )}
       {...props}
@@ -49,7 +49,7 @@ VariantProps<typeof tabsListVariants>) {
       data-slot="tabs-list"
       data-variant={variant}
       className={cn(
-        "inline-flex h-auto w-full rounded-md p-1 ", 
+        "inline-flex h-auto rounded-md p-1 ", 
         className
       )}
       {...props}
@@ -77,7 +77,7 @@ function TabsContent({ className, ...props }: TabsPrimitive.Panel.Props) {
     <TabsPrimitive.Panel
       data-slot="tabs-content"
       className={cn(
-        "flex-1 text-sm outline-none min-h-[480px]",
+        "flex-1 text-sm outline-none min-h-[480px] ",
          className)}
       {...props}
     />
