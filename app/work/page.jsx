@@ -77,7 +77,7 @@ const Works = () => {
         transition: {delay: 2.4, duration: 0.4, ease: 'easeIn'} }}
       className='min-h-[80vh] flex flex-col justify-center py-12 xl:px-0'
     >
-      <div className='container mx-auto'>
+      <div className='container mx-auto px-6 sm:px-12 xl:px-20 max-w-[1280px]'>
         <div className='flex flex-col xl:flex-row xl:gap-[30px]'>
           <div className='w-full xl:w-[50%] xl:h-[460px] flex flex-col
           xl:justify-between order-2 xl:order-none'>

@@ -6,20 +6,20 @@ import Link from "next/link";
 const services = [
   {
     num: '01',
-    title: 'web Development',
+    title: 'Lab Scientist',
+    description: 'Scientist conducts experiments, analyzes samples, and records results to support research, testing, and quality control.',
+    href: ''
+  },
+  {
+    num: '02',
+    title: 'Web Development',
     description: 'It includes front-end development, which focuses on the look and user experience, and back-end development, which handles server-side logic, databases, and application functionality.',
     href: ''
   },
    {
-    num: '02',
-    title: 'backend engineer',
-    description: 'They design APIs, work with databases, handle authentication, and ensure the application is secure, scalable, and performs reliably behind the scenes.',
-    href: ''
-  },
-   {
     num: '03',
-    title: 'lab scientist',
-    description: 'Scientist conducts experiments, analyzes samples, and records results to support research, testing, and quality control.',
+    title: 'Backend Engineer',
+    description: 'They design APIs, work with databases, handle authentication, and ensure the application is secure, scalable, and performs reliably behind the scenes.',
     href: ''
   },
    {
@@ -35,7 +35,7 @@ import { motion } from "framer-motion";
 const Services = () => {
   return (
     <section className="min-h-[80vh] flex flex-col justify-center py-12 lg:py-0">
-      <div className="container mx-auto">
+      <div className="container mx-auto px-6 sm:px-12 xl:px-20 max-w-[1280px]">
         <motion.div 
 
         initial={{opacity: 0}}
