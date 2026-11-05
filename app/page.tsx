@@ -5,8 +5,11 @@ import { FiDownload } from "react-icons/fi";
 import Social from "@/components/Social";
 import Photo from "@/components/Photo";
 import Stats from "@/components/Stats";
+import { getGithubStats } from "@/lib/github";
 
-const Home = () => {
+const Home = async () => {
+    const initialStats = await getGithubStats();
+
     return (
         <section className="h-full">
             <div className="container mx-auto h-full px-6 sm:px-12 xl:px-20 max-w-[1280px]">
@@ -55,7 +58,7 @@ const Home = () => {
                 </div>
             </div>
 
-            <Stats />
+            <Stats initialStats={initialStats} />
 
         </section>
     );
