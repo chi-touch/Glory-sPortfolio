@@ -11,12 +11,39 @@ import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/comp
 
 import Link from 'next/link';
 import Image from "next/image";
-import { image } from 'framer-motion/client';
 import WorkSliderBtns from '@/components/ui/WorkSliderBtns';
 
 const projects = [
   {
     num: '01',
+    category: 'Frontend',
+    title: 'My Movies',
+    description: 'A web application that allows users to search for movies and get information about them.',
+    stack: [
+      { name: 'Next.js ' },
+      { name: 'Tailwindcss' }
+    ],
+    image: '/assets/work/mymovies.png',
+    live: "https://movie-wine-one.vercel.app/movie/home",
+    github: "https://github.com/chi-touch/movie",
+
+  },
+  {
+    num: '02',
+    category: 'Fullstack',
+    title: 'Greatgrace School Website',
+    description: 'A website for a school that allows users to ',
+    stack: [
+      { name: 'Html 5' },
+      { name: 'CSS 3' },
+      { name: 'JavaScript' }
+    ],
+    image: '/assets/work/great.png',
+    live: "https://greatgrace.vercel.app/",
+    github: "https://github.com/chi-touch/greatgrace",
+  },
+  {
+    num: '03',
     category: 'Freelance',
     title: 'NarigDigital Website',
     description: 'Website for a Digital Marketing Company',
@@ -26,35 +53,20 @@ const projects = [
       { name: 'JavaScript' }
     ],
     image: '/assets/work/narigdigital.png',
-    live: "",
-    github: "",
+    live: "https://narigdigital.vercel.com/",
+    github: "https://github.com/chi-touch/narigdigital",
   },
   {
-    num: '02',
+    num: '04',
     category: 'Fullstack',
-    title: 'Semicolon Admin Dashboard',
-    description: 'Admin Dashboard for Semicolon Africa',
+    title: 'Enumverse',
+    description: 'Enumverse is a community platform for developers to connect, apply to job, and collaborate on projects.',
     stack: [
-      { name: 'React.js' },
-      { name: 'Node.js' },
-      { name: 'Express.js' },
-      { name: 'MongoDB' }
-    ],
-    image: '/assets/work/narigdigital.png',
-    live: "",
-    github: "",
-  },
-  {
-    num: '03',
-    category: 'Frontend',
-    title: 'Ecommerce Website',
-    description: 'Ecommerce Website for a Digital Marketing Company',
-    stack: [
-      { name: 'Next.js ' },
+      { name: 'Next.js' },
       { name: 'Tailwindcss' }
     ],
-    image: '/assets/work/narigdigital.png',
-    live: "",
+    image: '/assets/work/enumverse.png',
+    live: "https://enumverse.com",
     github: "",
   }
 ]
@@ -73,8 +85,10 @@ const Works = () => {
   return (
     <motion.section
       initial={{ opacity: 0 }}
-      animate={{ opacity: 1, 
-        transition: {delay: 2.4, duration: 0.4, ease: 'easeIn'} }}
+      animate={{
+        opacity: 1,
+        transition: { delay: 2.4, duration: 0.4, ease: 'easeIn' }
+      }}
       className='min-h-[80vh] flex flex-col justify-center py-12 xl:px-0'
     >
       <div className='container mx-auto px-6 sm:px-12 xl:px-20 max-w-[1280px]'>
@@ -91,20 +105,20 @@ const Works = () => {
               <h2 className='text-[42px] font-bold leading-none text-white 
               group-hover:text-accent transition-all duration-500 capitalize'>
                 {project.category} project
-                </h2>
+              </h2>
               {/*project description */}
               <p className='text-white/60'>{project.description}</p>
               { /* stack */}
               <ul className='flex gap-4'>
                 {project.stack.map((item, index) => {
-                return (
-                 <li key={index} className="text-xl text-accent">
-                  {item.name}
-                  {/* remove the last comma*/}
-                  {index !== project.stack.lenght - 1 && ","}
-                </li>
-                );
-              })}
+                  return (
+                    <li key={index} className="text-xl text-accent">
+                      {item.name}
+                      {/* remove the last comma*/}
+                      {index !== project.stack.length - 1 && ","}
+                    </li>
+                  );
+                })}
               </ul>
               <div className='border border-white/20'></div>
               {/* button */}
@@ -144,38 +158,43 @@ const Works = () => {
             </div>
           </div>
           <div className='w-full xl:w-[50%]'>
-            <Swiper 
+            <Swiper
               spaceBetween={30}
               slidesPerView={1}
+              rewind={true}
               className='lg:h-[520px] mb-12'
               onSlideChange={handleSlideChange}
             >
               {projects.map((project, index) => {
                 return (
-                <SwiperSlide key={index} className='w-full'>
-                  <div className='h-[460px] relative group flex justify-center
+                  <SwiperSlide key={index} className='w-full'>
+                    <div className='h-[350px] relative group flex justify-center
                   items-center bg-pink-50/20'>
-                  {/*overlay*/}
-                  <div className='absolute top-0 bottom-0 w-full h-full bg-black/10 z-10'></div>
-                  <div className='relative w-full h-full'>
-                    <Image 
-                      src={project.image}
-                      fill
-                      className='object-cover'
-                      alt=''
-                     />
+                      {/*overlay*/}
+                      <div className='absolute top-0 bottom-0 w-full h-full bg-black/10 z-10'></div>
+                      <div className='relative w-full h-full'>
+                        <Image
+                          src={project.image}
+                          fill
+                          className='object-fill w-full h-full'
+                          alt='image'
+                        />
+                      </div>
                     </div>
-                  </div>
                   </SwiperSlide>
 
                 );
               })}
               { /* slider button */}
+
               <WorkSliderBtns containerStyles="flex gap-2 absolute right-0 bottom-
-              [calc(50%_-_22px)] xl:bottom-0 z-20 w-full justify-between xl:w-max
-              xl:justify-none" btnStyles="bg-accent hover:bg-accent-hover 
+              [calc(50%_-_22px)] lg:bottom-23 z-20 w-full justify-between lg:w-max
+              lg:justify-none"
+                btnStyles="bg-accent hover:bg-accent-hover 
               text-primary text-[22px] w-[44px] h-[44px] flex justify-center
-              items-center transition-all" />
+              items-center transition-all"
+              />
+
             </Swiper>
 
           </div>
