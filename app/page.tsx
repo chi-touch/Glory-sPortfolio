@@ -16,7 +16,7 @@ const Home = async () => {
                 <div className="flex flex-col xl:flex-row items-center justify-center gap-12 xl:gap-28 xl:pt-8 xl:pb-24">
                     {/* text */}
                     <div className="text-center xl:text-left order-2 xl:order-none">
-                        <span className="text-lg">Software Developer</span>
+                        <span className="text-lg">Software Engineer</span>
                         <h1 className="h1 mb-6">
                             Hello I'm <br /> <span className="text-accent">David Glory Chiamaka </span>
                         </h1>

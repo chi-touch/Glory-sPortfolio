@@ -123,35 +123,38 @@ const stats = [
 
   return (
     <section className="pt-4 pb-12 lg:pt-0 lg:pb-0">
-        <div className="container mx-auto px-6 sm:px-12 xl:px-20 max-w-[1280px]">
-            <div className="flex flex-wrap gap-6 max-w-[80vm] mx-auto xl:max-w-none">
+        <div className="container mx-auto px-4 sm:px-8 xl:px-20 max-w-[1280px]">
+        {/* 2 columns on small screens, 4 columns on desktop */}
+        <div className="grid grid-cols-2 gap-y-8 gap-x-4 sm:gap-6 md:grid-cols-4 max-w-[520px] sm:max-w-[640px] md:max-w-none mx-auto">
                 {stats.map((item, index) => {
                     return (
                         <div
-                         className="flex-1 flex gap-4 items-center justify-center text-center"
+                         className="flex items-center justify-center xl:justify-start gap-2.5 sm:gap-4"
                          key={index}
                         >
                             <CountUp 
                   key={`${item.text}-${item.num}`}
                              end={item.num}
                              duration={5}
-                             delay={2}
-                             className="text-4xl lg:text-6xl font-extrabold"
-                            />
-                            <p className={`${
-                                item.text.length < 15 ? "max-w-[100px]" : "max-w-[150px]"
-                            } leading-snug text-white/80`}
-                            >
-                                {item.text}</p>
-
-                        </div>
-                    )
-                })}
-
-            </div>
+                  delay={1}
+                  className="text-3xl sm:text-4xl xl:text-6xl font-extrabold tracking-tight shrink-0"
+                />
+                <p
+                  className={`${
+                    item.text.length < 15
+                      ? "max-w-[75px] sm:max-w-[100px]"
+                      : "max-w-[100px] sm:max-w-[150px]"
+                  } text-xs sm:text-sm md:text-base leading-snug text-white/80 text-left`}
+                >
+                  {item.text}
+                </p>
+              </div>
+            );
+          })}
         </div>
+      </div>
     </section>
-  )
-}
+  );
+};
 
-export default Stats
+export default Stats;
