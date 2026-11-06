@@ -9,10 +9,10 @@ import CountUp from "react-countup";
 const Stats = ({ initialStats = undefined }) => {
   const [statsData, setStatsData] = useState(
     initialStats || {
-      experienceYears: 3,
-      projects: 69,
-      technologies: 11,
-      commits: 688,
+      experienceYears: 0,
+      projects: 0,
+      technologies: 0,
+      commits: 0,
     }
   );
 
