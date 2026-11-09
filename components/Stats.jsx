@@ -48,47 +48,52 @@ const Stats = ({ initialStats = undefined }) => {
   const stats = [
     {
       num: statsData.experienceYears,
-      text: "Year of Experience",
+      text: "Years of Experience",
+      suffix: "+",
     },
     {
       num: statsData.projects,
-      text: "Project completed",
+      text: "Projects Completed",
+      suffix: "",
     },
     {
       num: statsData.technologies,
-      text: "Technologies mastered",
+      text: "Technologies Mastered",
+      suffix: "",
     },
     {
       num: statsData.commits,
       text: "Code Commits",
+      suffix: "+",
     },
   ];
 
   return (
-    <section className="pt-4 pb-12 lg:pt-0 lg:pb-0">
+    <section className="py-8 sm:py-12 xl:py-16">
       <div className="container mx-auto px-4 sm:px-8 xl:px-20 max-w-[1280px]">
         {/* 2 columns on small screens, 4 columns on desktop */}
-        <div className="grid grid-cols-2 gap-y-8 gap-x-4 sm:gap-6 md:grid-cols-4 max-w-[520px] sm:max-w-[640px] md:max-w-none mx-auto">
+        <div className="grid grid-cols-2 gap-3 sm:gap-6 md:grid-cols-4 max-w-[560px] sm:max-w-[720px] md:max-w-none mx-auto">
           {stats.map((item, index) => {
             return (
               <div
-                className="flex items-center justify-center xl:justify-start gap-2.5 sm:gap-4"
+                className="group relative flex flex-col sm:flex-row items-center sm:items-center justify-center sm:justify-start gap-2.5 sm:gap-4 p-4 sm:p-6 rounded-2xl bg-white/[0.02] border border-white/5 hover:border-accent/40 hover:bg-white/[0.04] backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_8px_24px_rgba(0,255,153,0.08)]"
                 key={index}
               >
-                <CountUp
-                  key={`${item.text}-${item.num}`}
-                  end={item.num}
-                  duration={4}
-                  delay={1}
-                  className="text-3xl sm:text-4xl xl:text-6xl font-extrabold tracking-tight shrink-0"
-                />
-                <p
-                  className={`${
-                    item.text.length < 15
-                      ? "max-w-[75px] sm:max-w-[100px]"
-                      : "max-w-[100px] sm:max-w-[150px]"
-                  } text-xs sm:text-sm md:text-base leading-snug text-white/80 text-left`}
-                >
+                <div className="flex items-baseline">
+                  <CountUp
+                    key={`${item.text}-${item.num}`}
+                    end={item.num}
+                    duration={3}
+                    delay={0.2}
+                    className="text-3xl sm:text-4xl xl:text-5xl font-extrabold tracking-tight shrink-0 font-mono text-white group-hover:text-accent transition-colors"
+                  />
+                  {item.suffix && (
+                    <span className="text-xl sm:text-2xl font-bold text-accent font-mono ml-0.5">
+                      {item.suffix}
+                    </span>
+                  )}
+                </div>
+                <p className="text-xs sm:text-sm font-medium leading-tight text-white/70 group-hover:text-white transition-colors text-center sm:text-left max-w-[120px]">
                   {item.text}
                 </p>
               </div>
