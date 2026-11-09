@@ -6,6 +6,7 @@ import Social from "@/components/Social";
 import Photo from "@/components/Photo";
 import Stats from "@/components/Stats";
 import { getGithubStats } from "@/lib/github";
+import Services from "@/app/services/page";
 
 const Home = async () => {
     const initialStats = await getGithubStats();
@@ -59,6 +60,8 @@ const Home = async () => {
             </div>
 
             <Stats initialStats={initialStats} />
+
+            <Services />
 
         </section>
     );

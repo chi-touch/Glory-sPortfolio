@@ -34,7 +34,9 @@ import { motion } from "framer-motion";
 
 const Services = () => {
   return (
-    <section className="min-h-[80vh] flex flex-col justify-center py-12 lg:py-0">
+
+    <section className="min-h-[80vh] flex flex-col justify-center py-12 lg:py-0  mt-30">
+       <h1 className="ml-50 font-black text-4xl sm:text-6xl md:text-7xl">SERVICES</h1>
       <div className="container mx-auto px-6 sm:px-12 xl:px-20 max-w-[1280px]">
         <motion.div 
 
