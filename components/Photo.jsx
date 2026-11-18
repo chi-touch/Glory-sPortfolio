@@ -7,7 +7,7 @@ const Photo = () => {
   return (
     <div className="w-full h-full relative flex items-center justify-center">
       {/* Soft ambient green backlight glow */}
-      <div className="absolute w-[260px] sm:w-[320px] xl:w-[460px] h-[260px] sm:h-[320px] xl:h-[460px] rounded-full bg-accent/15 blur-[90px] -z-10 pointer-events-none" />
+      <div className="absolute w-[260px] sm:w-[320px] xl:w-[460px] h-[260px] sm:h-[320px] xl:h-[460px] rounded-full  -z-10 pointer-events-none" />
 
       <motion.div
         initial={{ opacity: 0, scale: 0.95 }}

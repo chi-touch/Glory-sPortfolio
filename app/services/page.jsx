@@ -10,7 +10,7 @@ const services = [
     title: "Frontend Engineering",
     description:
       "Crafting high-performance, pixel-perfect, accessible web interfaces using React, Next.js, and modern CSS. Focused on seamless micro-interactions, responsive design, and core web vital optimization.",
-    skills: ["React", "Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"],
+    skills: ["React", "Next.js", "Tailwind CSS", "Framer Motion"],
     href: "/contact",
   },
   {
@@ -18,7 +18,7 @@ const services = [
     title: "Backend Engineering",
     description:
       "Designing resilient RESTful APIs, scalable database schemas, secure authentication flows, and server-side business logic engineered for performance and scalability.",
-    skills: ["Node.js", "Express", "REST APIs", "PostgreSQL", "JWT / Auth"],
+    skills: ["Java", "REST APIs", "PostgreSQL", "JWT / Auth"],
     href: "/contact",
   },
   {
@@ -34,7 +34,7 @@ const services = [
     title: "Lab Science & Analytics",
     description:
       "Scientific methodology, analytical rigor, structured laboratory experimentation, quality control (QC), and detailed scientific research documentation.",
-    skills: ["Data Analysis", "QC Protocols", "Research", "Scientific Method"],
+    skills: ["Hematology", "Microbiology", "Phlebotomy", "Lab Equipments"],
     href: "/contact",
   },
 ];

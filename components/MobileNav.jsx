@@ -12,15 +12,15 @@ const links = [
   },
   {
     name: "services",
-    path: "/#services",
-  },
-  {
-    name: "work",
-    path: "/#work",
+    path: "/services",
   },
   {
     name: "resume",
     path: "/resume",
+  },
+  {
+    name: "work",
+    path: "/work",
   },
   {
     name: "contact",

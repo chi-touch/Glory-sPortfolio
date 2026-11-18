@@ -8,8 +8,6 @@ import Social from "@/components/Social";
 import Photo from "@/components/Photo";
 import Stats from "@/components/Stats";
 import { getGithubStats } from "@/lib/github";
-import Services from "@/app/services/page";
-import Works from "@/app/work/page";
 
 const Home = async () => {
   const initialStats = await getGithubStats();
@@ -17,10 +15,10 @@ const Home = async () => {
   return (
     <div className="relative overflow-hidden">
       {/* Ambient background glow effect */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] xl:w-[900px] h-[350px] bg-accent/10 blur-[150px] pointer-events-none rounded-full -z-10" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] xl:w-[900px] h-[350px] bg-accent/5 blur-[150px] pointer-events-none rounded-full -z-10" />
 
       {/* Hero Section */}
-      <section className="min-h-[85vh] flex flex-col justify-center pt-8 pb-12 xl:pt-14 xl:pb-20">
+      <section className="min-h-[82vh] flex flex-col justify-center pt-8 pb-12 xl:pt-12 xl:pb-16">
         <div className="container mx-auto px-6 sm:px-12 xl:px-20 max-w-[1280px]">
           <div className="flex flex-col xl:flex-row items-center justify-between gap-12 xl:gap-20">
             {/* Hero Text */}
@@ -44,13 +42,13 @@ const Home = async () => {
               {/* Subtitle / Role Tag */}
               <div className="text-sm sm:text-base text-white/90 mb-6 font-mono flex items-center justify-center xl:justify-start gap-1.5">
                 <span className="text-accent font-bold">{"<"}</span>
-                <span>Software Engineer & Fullstack Developer</span>
+                <span>Software Engineer & Fullstack Engineer</span>
                 <span className="text-accent font-bold">{"/>"}</span>
               </div>
 
               {/* Bio Summary */}
               <p className="mb-8 text-sm sm:text-base text-white/75 leading-relaxed mx-auto xl:mx-0">
-                Frontend & Fullstack Engineer specializing in building scalable, responsive, and high-performance web applications using React, Next.js, TypeScript, and modern cloud architecture. Passionate about clean code, intuitive UX, and maintainable systems.
+                Frontend & Fullstack Engineer specializing in building scalable, responsive, and high-performance web applications using React, Next.js, JavaScript, and modern cloud architecture. Passionate about clean code, intuitive UX, and maintainable systems.
               </p>
 
               {/* Action Buttons & Socials */}
@@ -72,8 +70,8 @@ const Home = async () => {
                   </Button>
                 </a>
 
-                {/* Explore Work Scroll Button */}
-                <Link href="#work">
+                {/* Explore Work Button */}
+                <Link href="/work">
                   <Button
                     variant="ghost"
                     size="lg"
@@ -105,16 +103,10 @@ const Home = async () => {
       {/* Dynamic GitHub Stats Section */}
       <Stats initialStats={initialStats} />
 
-      {/* Featured Projects Section */}
-      <Works />
-
-      {/* Services & Capabilities Section */}
-      <Services />
-
-      {/* Call to Action Banner (Bottom of Page) */}
-      <section className="py-16 sm:py-24">
+      {/* Call to Action Banner */}
+      <section className="py-14 sm:py-20">
         <div className="container mx-auto px-4 sm:px-8 xl:px-20 max-w-[1280px]">
-          <div className="relative rounded-3xl p-8 sm:p-12 xl:p-16 overflow-hidden bg-gradient-to-b from-white/[0.04] to-white/[0.01] border border-white/10 backdrop-blur-xl text-center">
+          <div className="relative rounded-3xl p-8 sm:p-12 xl:p-14 overflow-hidden bg-gradient-to-b from-white/[0.04] to-white/[0.01] border border-white/10 backdrop-blur-xl text-center">
             {/* Ambient Background Glow in Banner */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[350px] sm:w-[500px] h-[250px] bg-accent/10 blur-[100px] pointer-events-none rounded-full -z-10" />
 
@@ -126,7 +118,7 @@ const Home = async () => {
                 </span>
               </div>
 
-              <h2 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight mb-4">
+              <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight mb-4">
                 Have a project in mind or looking for a skilled engineer?
               </h2>
 
@@ -162,7 +154,7 @@ const Home = async () => {
       {/* Footer */}
       <footer className="py-8 border-t border-white/5 text-center text-xs text-white/50">
         <div className="container mx-auto px-4">
-          <p>© {new Date().getFullYear()} David Glory Chiamaka. Built with Next.js, Tailwind CSS & Framer Motion.</p>
+          <p>© {new Date().getFullYear()} David Glory Chiamaka. All rights reserved.</p>
         </div>
       </footer>
     </div>

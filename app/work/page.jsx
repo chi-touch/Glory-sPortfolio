@@ -58,7 +58,7 @@ const projects = [
     title: "Enumverse",
     description:
       "Modern developer community and networking platform allowing engineers to connect, collaborate on open-source initiatives, and apply to verified tech opportunities.",
-    stack: [{ name: "Next.js" }, { name: "Tailwind CSS" }, { name: "TypeScript" }, { name: "Community" }],
+    stack: [{ name: "Next.js" }, { name: "Tailwind CSS" }, { name: "HTML5" }, { name: "React" }],
     image: "/assets/work/enumverse.png",
     live: "https://enumverse.com",
     github: "",
@@ -190,19 +190,30 @@ const Works = () => {
               spaceBetween={30}
               slidesPerView={1}
               rewind={true}
-              className="h-[260px] sm:h-[380px] xl:h-[480px] rounded-2xl overflow-hidden relative"
+              className="w-full h-[260px] sm:h-[340px] xl:h-[390px] rounded-2xl overflow-hidden relative shadow-2xl"
               onSlideChange={handleSlideChange}
             >
               {projects.map((item, index) => (
                 <SwiperSlide key={index} className="w-full h-full">
-                  <div className="h-full w-full relative group flex justify-center items-center rounded-2xl overflow-hidden border border-white/10 bg-white/[0.02]">
-                    {/* Subtle Overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent z-10"></div>
-                    <div className="relative w-full h-full">
+                  <div className="h-full w-full relative group flex flex-col rounded-2xl overflow-hidden border border-white/10 bg-[#16161d]">
+                    {/* Browser-style Mockup Header Bar */}
+                    <div className="h-7 sm:h-8 bg-white/[0.04] border-b border-white/5 flex items-center px-3 sm:px-4 gap-1.5 shrink-0 z-20">
+                      <span className="w-2.5 h-2.5 rounded-full bg-[#ff5f56]/80" />
+                      <span className="w-2.5 h-2.5 rounded-full bg-[#ffbd2e]/80" />
+                      <span className="w-2.5 h-2.5 rounded-full bg-[#27c93f]/80" />
+                      <span className="ml-2 text-[10px] sm:text-xs text-white/35 font-mono truncate max-w-[220px]">
+                        {item.live ? item.live.replace(/^https?:\/\//, "") : item.title}
+                      </span>
+                    </div>
+
+                    {/* Image Container with Proper Aspect Ratio (Never Stretched) */}
+                    <div className="relative flex-1 w-full h-full overflow-hidden flex items-center justify-center p-1 sm:p-2 bg-black/30">
                       <Image
                         src={item.image}
                         fill
-                        className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-700 ease-out"
+                        sizes="(max-width: 768px) 100vw, 50vw"
+                        priority={index === 0}
+                        className="object-contain w-full h-full transition-transform duration-500 group-hover:scale-[1.02]"
                         alt={item.title || "Project preview"}
                       />
                     </div>
@@ -213,7 +224,7 @@ const Works = () => {
               {/* Slider Navigation Buttons */}
               <WorkSliderBtns
                 containerStyles="flex gap-2 absolute right-4 bottom-4 z-20"
-                btnStyles="bg-accent hover:bg-accent-hover text-primary text-[20px] w-[42px] h-[42px] flex justify-center items-center transition-all rounded-full shadow-lg"
+                btnStyles="bg-accent hover:bg-accent-hover text-primary text-[20px] w-[40px] h-[40px] flex justify-center items-center transition-all rounded-full shadow-lg cursor-pointer"
               />
             </Swiper>
           </div>
