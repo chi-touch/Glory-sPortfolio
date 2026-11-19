@@ -129,14 +129,11 @@ export async function getGithubStats(): Promise<GithubStats> {
       }),
     ]);
 
-    let projects = diskFallback?.projects || cachedStats?.projects || 69;
-    let commits = diskFallback?.commits || cachedStats?.commits || 688;
-    let technologies = diskFallback?.technologies || cachedStats?.technologies || 11;
-    let experienceYears = diskFallback?.experienceYears || cachedStats?.experienceYears || 3;
-    const languages: string[] = diskFallback?.languages || cachedStats?.languages || [
-      "JavaScript", "TypeScript", "HTML", "CSS", "Python", "Java", "Go", "Vue", "Shell", "HCL", "Move"
-    ];
-
+    let projects = diskFallback?.projects || cachedStats?.projects || 0;
+    let commits = diskFallback?.commits || cachedStats?.commits || 0;
+    let technologies = diskFallback?.technologies || cachedStats?.technologies || 0;
+    let experienceYears = diskFallback?.experienceYears || cachedStats?.experienceYears || 0;
+    const languages: string[] = diskFallback?.languages || cachedStats?.languages || [];
     // 1. User Profile: Public Repos & Account Creation Date
     if (userRes.status === "fulfilled" && userRes.value.ok) {
       const userData = await userRes.value.json();
@@ -166,7 +163,7 @@ export async function getGithubStats(): Promise<GithubStats> {
       if (searchCommits > 0) {
         commits = searchCommits + localBranchAhead;
       } else {
-        commits = Math.max(commits, 681 + localBranchAhead);
+        commits = Math.max(commits, 0 + localBranchAhead);
       }
     } else if (compareRes.status === "fulfilled" && compareRes.value.ok) {
       // Remote GitHub compare fallback
@@ -175,7 +172,7 @@ export async function getGithubStats(): Promise<GithubStats> {
         if (searchCommits > 0) {
           commits = searchCommits + compareData.ahead_by;
         } else {
-          commits = Math.max(commits, 681 + compareData.ahead_by);
+          commits = Math.max(commits,0 + compareData.ahead_by);
         }
       }
     }
@@ -228,13 +225,11 @@ export async function getGithubStats(): Promise<GithubStats> {
       return diskFallback;
     }
     return {
-      commits: 688,
-      projects: 69,
-      technologies: 11,
-      experienceYears: 3,
-      languages: [
-        "JavaScript", "TypeScript", "HTML", "CSS", "Python", "Java", "Go", "Vue", "Shell", "HCL", "Move"
-      ],
+      commits: 0,
+      projects: 0,
+      technologies: 0,
+      experienceYears: 0,
+      languages: [],
     };
   }
 }
